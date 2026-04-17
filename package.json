@@ -1,0 +1,30 @@
+{
+  "name": "astro-template",
+  "version": "1.0.0",
+  "description": "A minimal astro.js template with preinstalled TailwindCSS and DaisyUI support.",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grzes-business/astro-template.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/grzes-business/astro-template/issues"
+  },
+  "homepage": "https://github.com/grzes-business/astro-template#readme",
+  "dependencies": {
+    "@tailwindcss/vite": "^4.2.2",
+    "astro": "^6.1.7",
+    "daisyui": "^5.5.19",
+    "tailwindcss": "^4.2.2"
+  }
+}
