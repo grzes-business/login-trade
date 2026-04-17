@@ -1,9 +1,201 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+const site = {
+  businessName: "Logintrade",
+  heroHeadline: "Platforma zakupowa, sprzedażowa i przetargowa – Logintrade",
+  ctaLink: "https://www.logintrade.pl",
+  services: [
+    {
+      title: "Zapotrzebowania",
+      description:
+        "Narzędzia e-procurement do składania, weryfikacji i akceptacji wewnętrznych potrzeb zakupowych w firmie.",
+      icon: "clipboard-check",
+    },
+    {
+      title: "Zapytania ofertowe (RFX)",
+      description:
+        "Intuicyjne tworzenie zapytań RFI, RFP, RFQ oraz analiza ofert handlowych od dostawców.",
+      icon: "file-question",
+    },
+    {
+      title: "Aukcje elektroniczne",
+      description:
+        "Skuteczne negocjacje on-line w formatach angielskim, holenderskim i japońskim dla optymalizacji kosztów.",
+      icon: "gavel",
+    },
+    {
+      title: "Katalogi i zamówienia",
+      description:
+        "Wizualizacja produktów i moduł akceptacji koszyków ułatwiający realizację zakupów biznesowych.",
+      icon: "shopping-cart",
+    },
+    {
+      title: "Zarządzanie umowami",
+      description:
+        "Moduł e-Kontrakt zapewniający archiwizację, monitoring realizacji i łatwy dostęp do umów handlowych.",
+      icon: "file-text",
+    },
+    {
+      title: "Ocena dostawców",
+      description:
+        "Budowanie bazy know-how i zarządzanie procesem kwalifikacji oraz rozwoju dostawców.",
+      icon: "user-check",
+    },
+    {
+      title: "Szkolenia i Konsulting",
+      description:
+        "Wsparcie wdrożeniowe, audyt procesów zakupowych oraz warsztaty z zakresu e-procurement.",
+      icon: "graduation-cap",
+    },
+  ],
+  contact: {
+    address: "ul. Legnicka 57D lok. B/J, 54-203 Wrocław",
+    phone: "+48 71 787 35 34",
+    email: "kontakt@logintrade.pl",
+  },
+};
+
+const phoneHref = `tel:${site.contact.phone.replace(/\s+/g, "")}`;
+
+const history = [
+  {
+    year: "2008",
+    title: "Start platformy",
+    description: "Uruchomienie pierwszych wdrożeń e-procurement dla zespołów zakupowych.",
+  },
+  {
+    year: "2014",
+    title: "Rozwój modułów RFX i aukcji",
+    description: "Rozszerzenie narzędzi o pełne procesy zapytań ofertowych i negocjacji online.",
+  },
+  {
+    year: "2020+",
+    title: "Kompleksowy ekosystem zakupowy",
+    description: "Integracja procesów od zapotrzebowań po kontrakty, analitykę i rozwój dostawców.",
+  },
+];
+
+const offerHighlights = [
+  "Szybsze decyzje zakupowe dzięki jednemu środowisku pracy.",
+  "Przejrzystość procesów i pełna historia działań zespołów.",
+  "Lepsza współpraca z dostawcami i większa kontrola kosztów.",
+];
+
+const iconSymbols: Record<string, string> = {
+  "clipboard-check": "✓",
+  "file-question": "?",
+  gavel: "⚖",
+  "shopping-cart": "🛒",
+  "file-text": "📄",
+  "user-check": "👤",
+  "graduation-cap": "🎓",
+};
 ---
 
-<Layout title="Home">
-  <main class="min-h-screen flex items-center justify-center">
-    <button class="btn btn-primary">Example button</button>
+<Layout title="Logintrade">
+  <main class="min-h-screen bg-base-100 font-sans text-base-content">
+    <section class="hero bg-base-200">
+      <div class="hero-content mx-auto grid w-full max-w-6xl gap-10 px-6 py-16 lg:grid-cols-[1.25fr_1fr]">
+        <div>
+          <div class="badge badge-primary badge-outline mb-4 px-4 py-3">{site.businessName}</div>
+          <h1 class="text-3xl font-bold leading-tight md:text-5xl">{site.heroHeadline}</h1>
+          <p class="mt-5 text-base leading-relaxed text-base-content/80">
+            Jedna platforma do prowadzenia nowoczesnych procesów zakupowych: od zgłoszenia potrzeby
+            po negocjacje, kontrakt i ocenę dostawcy.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a class="btn btn-primary" href={site.ctaLink} target="_blank" rel="noopener noreferrer">
+              Odwiedź Logintrade
+            </a>
+            <a class="btn btn-outline btn-primary" href={`mailto:${site.contact.email}`}>Umów prezentację</a>
+          </div>
+        </div>
+
+        <div class="card border border-base-300 bg-base-100">
+          <div class="card-body gap-4">
+            <h2 class="card-title text-lg">Co zyskuje dział zakupów?</h2>
+            <ul class="space-y-3 text-sm">
+              {
+                offerHighlights.map((item) => (
+                  <li class="flex items-start gap-3">
+                    <span class="badge badge-primary badge-sm mt-1" aria-hidden="true"></span>
+                    <span>{item}</span>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-6xl px-6 py-14 md:py-20">
+      <div class="mb-8 flex flex-wrap items-end justify-between gap-4">
+        <h2 class="text-2xl font-bold">Oferta platformy</h2>
+        <span class="badge badge-secondary badge-outline px-4 py-3">7 kluczowych modułów</span>
+      </div>
+      <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        {
+          site.services.map((service) => (
+            <article class="card border border-base-300 bg-base-100">
+              <div class="card-body">
+                <div class="flex items-center gap-2 text-xs uppercase tracking-wide text-base-content/60">
+                  <span class="badge badge-primary badge-outline" aria-hidden="true">
+                    {iconSymbols[service.icon]}
+                  </span>
+                </div>
+                <h3 class="card-title text-lg">{service.title}</h3>
+                <p class="text-sm leading-relaxed text-base-content/80">{service.description}</p>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="bg-base-200">
+      <div class="mx-auto max-w-6xl px-6 py-14">
+        <h2 class="mb-8 text-2xl font-bold">Historia i rozwój</h2>
+        <ul class="timeline timeline-vertical">
+          {
+            history.map((milestone, index) => (
+              <li>
+                {index > 0 && <hr />}
+                <div class="timeline-start font-semibold">{milestone.year}</div>
+                <div
+                  class="timeline-middle badge badge-primary badge-xs"
+                  aria-hidden="true"
+                ></div>
+                <div class="timeline-end mb-8 card border border-base-300 bg-base-100">
+                  <div class="card-body p-4">
+                    <h3 class="text-base font-semibold">{milestone.title}</h3>
+                    <p class="text-sm text-base-content/80">{milestone.description}</p>
+                  </div>
+                </div>
+                {index < history.length - 1 && <hr />}
+              </li>
+            ))
+          }
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-6xl px-6 py-14">
+      <h2 class="mb-6 text-2xl font-bold">Kontakt</h2>
+      <div class="stats stats-vertical w-full border border-base-300 bg-base-100 shadow-sm lg:stats-horizontal">
+        <div class="stat">
+          <div class="stat-title">Adres</div>
+          <div class="stat-value text-base">{site.contact.address}</div>
+        </div>
+        <a class="stat hover:bg-base-200" href={phoneHref}>
+          <div class="stat-title">Telefon</div>
+          <div class="stat-value text-base">{site.contact.phone}</div>
+        </a>
+        <a class="stat hover:bg-base-200" href={`mailto:${site.contact.email}`}>
+          <div class="stat-title">E-mail</div>
+          <div class="stat-value text-base">{site.contact.email}</div>
+        </a>
+      </div>
+    </section>
   </main>
 </Layout>

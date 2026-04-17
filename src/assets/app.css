@@ -7,10 +7,17 @@
   name: "light";
   default: true;
   color-scheme: light;
-  --color-primary: oklch(55% 0.3 240);
-  --color-primary-content: oklch(98% 0.01 240);
-  --color-secondary: oklch(65% 0.2 330);
-  --color-secondary-content: oklch(98% 0.01 330);
-  --color-accent: oklch(72% 0.19 165);
-  --color-accent-content: oklch(20% 0.05 165);
+  --color-base-100: #ffffff;
+  --color-base-200: #f5f7f9;
+  --color-base-300: #dbe2e8;
+  --color-base-content: #1f2937;
+  --color-primary: #0076b3;
+  --color-primary-content: #ffffff;
+  --color-secondary: #b2b2b2;
+  --color-secondary-content: #1f2937;
+  --color-accent: #0b4f71;
+  --color-accent-content: #ffffff;
+  --radius-selector: 0rem;
+  --radius-field: 0rem;
+  --radius-box: 0rem;
 }
